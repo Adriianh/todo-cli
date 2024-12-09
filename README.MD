@@ -40,7 +40,7 @@ Add a task with a name and optionally a list of descriptions or sub-tasks.
  **Example:**
 
 ```bash
-java -jar /bin/todo.jar add "Plan trip" --description "Book flight, Find hotel, Pack bags"
+java -jar /bin/todo.jar add Trip --description=Book flight,Find hotel,Pack bags
 ```
 2. `list` - **List all tasks**
 
@@ -55,7 +55,7 @@ java -jar /bin/todo.jar list
 **Output:**
 
 ```yaml
-ID: 1, Name: Plan trip, Done: No
+ID: 1, Name: Trip, Done: No
   Description:
     1. Book flight
     2. Find hotel
@@ -89,7 +89,7 @@ Change the file where tasks are stored. Ideal for organizing tasks into differen
 **Example:**
 
 ```bash
-java -jar /bin/todo.jar set-path "project_a.json"
+java -jar /bin/todo.jar file --path=my_trip.json
 ```
 
 ## Storage File Configuration

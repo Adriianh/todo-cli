@@ -18,9 +18,9 @@ class ListCommand(private val manager: TaskManager) : CliktCommand() {
         tasks.forEach { task ->
             echo("")
             echo("ID: ${task.id}, Name: ${task.name}, Done: ${if (task.done) "Yes" else "No"}")
-            if (task.content.isNotEmpty()) {
+            if (task.description.isNotEmpty()) {
                 echo("  Description:")
-                task.content.forEachIndexed { index, item ->
+                task.description.forEachIndexed { index, item ->
                     echo("    ${index + 1}. $item")
                 }
             }

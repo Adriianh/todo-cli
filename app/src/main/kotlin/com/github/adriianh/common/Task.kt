@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 data class Task(
     val id: Int,
     val name: String,
-    var content: MutableList<String> = mutableListOf(),
+    var description: MutableList<String> = mutableListOf(),
     var done: Boolean = false
 )

@@ -44,7 +44,7 @@ class TaskManager(configFilePath: String = "config.txt") {
         Task(
             id = generateId(),
             name = name,
-            content = content.toMutableList()
+            description = content.toMutableList()
         ).let { tasks.add(it) }
 
         saveTasks()

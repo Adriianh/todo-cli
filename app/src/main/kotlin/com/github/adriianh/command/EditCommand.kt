@@ -24,14 +24,14 @@ class EditCommand(private val manager: TaskManager) : CliktCommand() {
         }
 
         if (add != null) {
-            task.content += add!!
+            task.description += add!!
             manager.saveTasks()
             echo("Added to description: $add")
         }
 
         if (remove != null) {
-            if (remove in 1..task.content.size) {
-                val removed = task.content.removeAt(remove!! - 1)
+            if (remove in 1..task.description.size) {
+                val removed = task.description.removeAt(remove!! - 1)
                 manager.saveTasks()
                 echo("Removed from description: $remove")
             } else echo("Invalid index: $remove")

@@ -37,6 +37,11 @@ dependencies {
     implementation("com.github.ajalt.clikt:clikt:5.0.1")
     implementation("com.github.ajalt.clikt:clikt-markdown:5.0.1") /* Optional */
 
+    /* Mordant */
+    implementation("com.github.ajalt.mordant:mordant:3.0.1")
+    implementation("com.github.ajalt.mordant:mordant-coroutines:3.0.1")
+    implementation("com.github.ajalt.mordant:mordant-markdown:3.0.1")
+
     /* Serialization */
     implementation(libs.serialization)
 }

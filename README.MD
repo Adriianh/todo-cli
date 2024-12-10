@@ -40,7 +40,7 @@ Add a task with a name and optionally a list of descriptions or sub-tasks.
  **Example:**
 
 ```bash
-java -jar /bin/todo.jar add Trip --description=Book flight,Find hotel,Pack bags
+java -jar /bin/todo.jar add Trip --description="Book flight,Find hotel,Pack bags"
 ```
 2. `list` - **List all tasks**
 
@@ -79,7 +79,7 @@ Edit a specific task description using its ID.
 **Example:**
 
 ```bash
-java -jar /bin/todo.jar edit 1 --add=Buy food
+java -jar /bin/todo.jar edit 1 --add="Buy food"
 ```
 
 5. `delete` - **Delete a task**
@@ -99,7 +99,7 @@ Change the file where tasks are stored. Ideal for organizing tasks into differen
 **Example:**
 
 ```bash
-java -jar /bin/todo.jar file my_trip.json
+java -jar /bin/todo.jar file "my_trip.json"
 ```
 
 ## Storage File Configuration

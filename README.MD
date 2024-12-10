@@ -49,7 +49,9 @@ Displays all tasks in the current file, including their status (pending or compl
 **Example:**
 
 ```bash
-java -jar /bin/todo.jar list
+| ID | Name |             Description            | Done |
+|----|------|:----------------------------------:|------|
+| 1  | Trip | Book Flight, Find Hotel, Pack Bags | No   |
 ```
 
 **Output:**

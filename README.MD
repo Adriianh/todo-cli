@@ -89,7 +89,7 @@ Change the file where tasks are stored. Ideal for organizing tasks into differen
 **Example:**
 
 ```bash
-java -jar /bin/todo.jar file --path=my_trip.json
+java -jar /bin/todo.jar file my_trip.json
 ```
 
 ## Storage File Configuration

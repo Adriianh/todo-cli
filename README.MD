@@ -72,7 +72,17 @@ Mark a specific task as completed using its ID.
 java -jar /bin/todo.jar done 1
 ```
 
-4. `delete` - **Delete a task**
+4. `edit` - **Edit task description**
+
+Edit a specific task description using its ID.
+
+**Example:**
+
+```bash
+java -jar /bin/todo.jar edit 1 --add=Buy food
+```
+
+5. `delete` - **Delete a task**
 
 Remove a specific task using its ID.
 
@@ -82,7 +92,7 @@ Remove a specific task using its ID.
 java -jar /bin/todo.jar delete 1
 ```
 
-5. `file` - **Set the storage file path**
+6. `file` - **Set the storage file path**
 
 Change the file where tasks are stored. Ideal for organizing tasks into different projects or contexts.
 

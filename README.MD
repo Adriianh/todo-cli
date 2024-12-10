@@ -49,19 +49,15 @@ Displays all tasks in the current file, including their status (pending or compl
 **Example:**
 
 ```bash
-| ID | Name |             Description            | Done |
-|----|------|:----------------------------------:|------|
-| 1  | Trip | Book Flight, Find Hotel, Pack Bags | No   |
+java -jar /bin/todo.jar list
 ```
 
 **Output:**
 
-```yaml
-ID: 1, Name: Trip, Done: No
-  Description:
-    1. Book flight
-    2. Find hotel
-    3. Pack bags
+```bash
+| ID | Name |             Description            | Done |
+|----|------|:----------------------------------:|------|
+| 1  | Trip | Book Flight, Find Hotel, Pack Bags | No   |
 ```
 
 3. `done` - **Mark a task as completed**

@@ -17,10 +17,10 @@ class ToDo : CliktCommand() {
     init {
         subcommands(
             FileCommand(manager),
-            CreateCommand(manager),
+            AddCommand(manager),
             DeleteCommand(manager),
             EditCommand(manager),
-            CompleteCommand(manager),
+            DoneCommand(manager),
             ListCommand(manager)
         )
     }

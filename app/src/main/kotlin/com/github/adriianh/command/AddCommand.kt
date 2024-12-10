@@ -7,8 +7,8 @@ import com.github.ajalt.clikt.parameters.arguments.argument
 import com.github.ajalt.clikt.parameters.options.convert
 import com.github.ajalt.clikt.parameters.options.option
 
-class CreateCommand(private val manager: TaskManager) : CliktCommand() {
-    override fun help(context: Context) = "Create a task."
+class AddCommand(private val manager: TaskManager) : CliktCommand() {
+    override fun help(context: Context) = "Add a new task."
 
     private val taskName by argument(help = "Task's name")
     private val description: List<String>? by option(help = "A comma-separated list of task's description")

@@ -24,7 +24,7 @@ class EditCommand(private val manager: TaskManager) : CliktCommand() {
         }
 
         if (add == null && remove == null) {
-            echo("No action specified")
+            echo("No action specified. You must be use -add or --remove to edit task description.")
             return
         }
 
@@ -36,7 +36,7 @@ class EditCommand(private val manager: TaskManager) : CliktCommand() {
 
         if (remove != null) {
             if (remove in 1..task.description.size) {
-                val removed = task.description.removeAt(remove!! - 1)
+                task.description.removeAt(remove!! - 1)
                 manager.saveTasks()
                 echo("Removed from description: $remove")
             } else echo("Invalid index: $remove")

@@ -23,6 +23,11 @@ class EditCommand(private val manager: TaskManager) : CliktCommand() {
             return
         }
 
+        if (add == null && remove == null) {
+            echo("No action specified")
+            return
+        }
+
         if (add != null) {
             task.description += add!!
             manager.saveTasks()

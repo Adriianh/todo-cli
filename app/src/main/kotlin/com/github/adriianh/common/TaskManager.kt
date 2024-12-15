@@ -14,13 +14,8 @@ class TaskManager(configFilePath: String = "config.txt") {
 
     private var tasks: MutableList<Task> = loadTasks()
 
-    private fun loadStoragePath(): String {
-        return if (configFile.exists()) {
-            configFile.readText().trim()
-        } else {
-            "tasks.json"
-        }
-    }
+    private fun loadStoragePath(): String =
+        if (configFile.exists()) configFile.readText().trim() else "tasks.json"
 
     fun setStoragePath(newPath: String) {
         storageFile = newPath
@@ -51,23 +46,34 @@ class TaskManager(configFilePath: String = "config.txt") {
     }
 
     fun deleteTask(id: Int): Boolean {
-        val removed = tasks.removeIf { it.id == id }
-
-        if (removed) saveTasks()
-        return removed
-    }
-
-    fun completeTask(id: Int): Boolean {
-        val task = tasks.find { it.id == id }
-
-        return if (task != null) {
-            task.done = true
+        return if (tasks.removeIf { it.id == id }) {
             saveTasks()
             true
         } else false
     }
 
+    fun completeTask(task: Task): Boolean {
+        task.done = true
+        updateTask(task)
+        return true
+    }
+
     fun listTasks(): List<Task> = tasks
+
+    fun findTaskOrError(id: Int): Task {
+        return findTaskById(id) ?: throw IllegalArgumentException("Task with ID $id not found")
+    }
+
+    private fun findTaskById(id: Int): Task? = tasks.find { it.id == id }
+
+    private fun updateTask(task: Task) {
+        tasks.replaceAll { existing ->
+            if (existing.id == task.id) {
+                task
+            } else existing
+        }
+        saveTasks()
+    }
 
     private fun generateId(): Int {
         return if (tasks.isEmpty()) 1 else tasks.maxOf { it.id } + 1

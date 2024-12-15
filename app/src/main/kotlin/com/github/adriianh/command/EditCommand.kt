@@ -15,11 +15,10 @@ class EditCommand(private val manager: TaskManager) : CliktCommand() {
     private val remove by option(help = "The index of an item to remove from task's description").int()
 
     override fun run() {
-        val tasks = manager.listTasks()
-        val task = tasks.find { it.id == id }
-
-        if (task == null) {
-            echo("Task with ID $id not found")
+        val task = try {
+            manager.findTaskOrError(id)
+        } catch (e: IllegalArgumentException) {
+            echo(e.message)
             return
         }
 

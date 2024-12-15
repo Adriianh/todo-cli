@@ -12,14 +12,14 @@ class DoneCommand(private val manager: TaskManager) : CliktCommand() {
     private val id by argument("The ID of the task to mark as done").int()
 
     override fun run() {
-        val task = manager.listTasks().find { it.id == id }
-
-        if (task == null) {
-            echo("Task with ID $id not found")
+        val task = try {
+            manager.findTaskOrError(id)
+        } catch (e: IllegalArgumentException) {
+            echo(e.message)
             return
         }
 
-        if (manager.completeTask(id)) echo("Task with ID $id marked as done")
+        if (manager.completeTask(task)) echo("Task with ID $id marked as done")
         else echo("Task with ID $id cannot be marked as done")
     }
 }

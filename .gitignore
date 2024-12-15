@@ -5,4 +5,5 @@
 build
 
 .kotlin
+.idea
 .fleet
